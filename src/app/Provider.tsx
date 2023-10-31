@@ -2,7 +2,8 @@
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React, { Fragment, createContext } from 'react';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider, tokenStyles } from '@/components/ThemeProvider';
 import { tokens } from '@/components/ThemeProvider/theme';
 import { VisuallyHidden } from '@/components/VisuallyHidden';
 import { msToNum } from '@/utils/styles';
@@ -10,12 +11,15 @@ import styles from './App.module.css';
 
 export const AppContext = createContext({});
 
+const GlobalStyle = createGlobalStyle`
+${tokenStyles}`;
+
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const path = usePathname();
 
   return (
     <AppContext.Provider value={{}}>
-      <ThemeProvider themeId={'dark'}>
+      <ThemeProvider themeId={'light'}>
         <>
           <LazyMotion features={domAnimation}>
             <Fragment>
@@ -49,6 +53,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
               </main>
             </Fragment>
           </LazyMotion>
+          <GlobalStyle />
         </>
       </ThemeProvider>
     </AppContext.Provider>

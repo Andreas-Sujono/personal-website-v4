@@ -69,17 +69,14 @@ export const DecoderText = ({
   const decoderSpring = useSpring(0, { stiffness: 8, damping: 5 });
 
   useEffect(() => {
-    console.log('errererererer');
     const containerInstance = container.current;
     const content = text.split('');
     let animation;
 
     const renderOutput = () => {
-      console.log('renderOutput');
       const characterMap = output.current.map((item) => {
         return `<span class="${styles[item.type]}">${item.value}</span>`;
       });
-      console.log('renderOutput2', containerInstance);
 
       if (containerInstance)
         containerInstance.innerHTML = characterMap.join('');
@@ -95,10 +92,6 @@ export const DecoderText = ({
       decoderSpring.set(content.length);
     };
 
-    console.log('herere: ', {
-      start,
-      animation,
-    });
     if (start && !animation && !reduceMotion) {
       startSpring();
     }
