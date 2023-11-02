@@ -38,7 +38,7 @@
   font-size: calc((24 / 16) * 1rem);
   letter-spacing: 0.3em;
   color: var(--colorTextBody);
-  margin-bottom: var(--space2XL);
+  margin-bottom: var(--spaceXL);
   margin-top: 0;
   font-weight: var(--fontWeightMedium);
   line-height: 1;
@@ -279,7 +279,7 @@
     transition-property: opacity, transform;
 
     &::before {
-      animation: introScrollIndicator 2s ease infinite;
+      animation: introScrollIndicator 1.5s ease infinite;
     }
   }
 

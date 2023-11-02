@@ -94,7 +94,9 @@ const TransitionContent = ({
   const splitTimeout = typeof timeout === 'object';
 
   useEffect(() => {
-    if (hasEntered || !show) return;
+    if (hasEntered || !show) {
+      return;
+    }
 
     const actualTimeout = splitTimeout ? timeout.enter : timeout;
 
@@ -105,7 +107,7 @@ const TransitionContent = ({
     setStatus('entering');
     onEnter?.();
 
-    if (enterTimeout?.current)
+    if (enterTimeout)
       enterTimeout.current = setTimeout(() => {
         setStatus('entered');
         onEntered?.();
@@ -124,12 +126,13 @@ const TransitionContent = ({
     setStatus('exiting');
     onExit?.();
 
-    if (exitTimeout?.current)
+    if (exitTimeout)
       exitTimeout.current = setTimeout(() => {
         setStatus('exited');
         safeToRemove?.();
         onExited?.();
       }, actualTimeout);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPresent, onExit, safeToRemove, timeout, onExited, show]);
 

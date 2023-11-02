@@ -12,9 +12,9 @@ import { tokens, useTheme } from '@/components/ThemeProvider';
 import { Heading } from '@/components/Text/Heading';
 import styles from './Intro.module.scss';
 
-// const DisplacementSphere = dynamic(() =>
-//   import('./DisplacementSphere').then((mod) => mod.DisplacementSphere),
-// );
+const DisplacementSphere = dynamic(() =>
+  import('./DisplacementSphere').then((mod) => mod.DisplacementSphere),
+);
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   disciplines: string[];
@@ -76,7 +76,7 @@ export function Intro({
       <Transition in key={theme.themeId} timeout={3000}>
         {(visible, status) => (
           <Fragment>
-            {/* <DisplacementSphere /> */}
+            <DisplacementSphere />
             <header className={styles.text}>
               <h1 className={styles.name} data-visible={visible} id={titleId}>
                 <DecoderText text="Andreas Sujono" delay={300} />
@@ -91,57 +91,48 @@ export function Intro({
                     data-status={status}
                     style={cssProps({ delay: tokens.base.durationXS })}
                   >
-                    Designer
+                    Developer
                   </span>
                   <span className={styles.line} data-status={status} />
                 </span>
                 <div className={styles.row}>
                   <AnimatePresence>
-                    {disciplines.map((item) => (
-                      <Transition
-                        unmount
-                        in={item === currentDiscipline}
-                        timeout={{ enter: 3000, exit: 2000 }}
-                        key={item}
-                      >
-                        {(visible, status) => (
-                          <span
-                            aria-hidden
-                            className={styles.word}
-                            data-plus={true}
-                            data-status={status}
-                            style={cssProps({ delay: tokens.base.durationL })}
-                          >
-                            {item}
-                          </span>
-                        )}
-                      </Transition>
-                    ))}
+                    {disciplines.map((item) => {
+                      return (
+                        <Transition
+                          unmount={true}
+                          in={item === currentDiscipline}
+                          timeout={{ enter: 3000, exit: 2000 }}
+                          key={item}
+                        >
+                          {(visible, status) => (
+                            <span
+                              aria-hidden
+                              className={styles.word}
+                              data-plus={true}
+                              data-status={status}
+                              style={cssProps({ delay: tokens.base.durationL })}
+                            >
+                              {item}
+                            </span>
+                          )}
+                        </Transition>
+                      );
+                    })}
                   </AnimatePresence>
                 </div>
+                <div className={styles.row}></div>
               </Heading>
             </header>
-            {/* <RouterLink href="/#projects">
-              <a
-                className={styles.scrollIndicator}
-                data-status={status}
-                data-hidden={scrollIndicatorHidden}
-                onClick={handleScrollClick}
-              >
-                <VisuallyHidden>Scroll to projects</VisuallyHidden>
-              </a>
+            <RouterLink
+              href="/#projects"
+              className={styles.scrollIndicator}
+              data-status={status}
+              data-hidden={scrollIndicatorHidden}
+              onClick={handleScrollClick}
+            >
+              <VisuallyHidden>Scroll to projects</VisuallyHidden>
             </RouterLink>
-            <RouterLink href="/#projects">
-              <a
-                className={styles.mobileScrollIndicator}
-                data-status={status}
-                data-hidden={scrollIndicatorHidden}
-                onClick={handleScrollClick}
-              >
-                <VisuallyHidden>Scroll to projects</VisuallyHidden>
-                <ArrowDownIcon aria-hidden />
-              </a>
-            </RouterLink> */}
           </Fragment>
         )}
       </Transition>

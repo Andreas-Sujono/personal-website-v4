@@ -19,7 +19,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AppContext.Provider value={{}}>
-      <ThemeProvider themeId={'light'}>
+      <ThemeProvider themeId={'dark'}>
         <>
           <LazyMotion features={domAnimation}>
             <Fragment>

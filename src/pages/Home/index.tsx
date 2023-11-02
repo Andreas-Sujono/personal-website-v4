@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Intro } from './Intro';
 
 const disciplines = [
-  'Developer',
+  'Designer',
   'Prototyper',
   'Thinker',
   'Entrepreneur',
