@@ -1,20 +1,27 @@
 'use client';
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
+import RouterLink from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button, ButtonProps } from '@/components/Button';
 import { useSelectSetThemeId, useSelectThemeId } from '@/store/selectors/theme';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { LinkContent } from '../Text/Link';
 import styles from './ThemeToggle.module.scss';
 import { Monogram } from './Monogram';
+import { navLinks } from './navData';
 
 const Navbar = ({
   isMobile,
   ...rest
 }: { isMobile?: boolean } & ButtonProps) => {
+  const [target, setTarget] = useState<string | null>(null);
+
   const id = useId();
   const maskId = `${id}theme-toggle-mask`;
 
   const themeId = useSelectThemeId();
   const setThemeId = useSelectSetThemeId();
+  const currentPathname = usePathname();
   const [storedValue, setStoredValue] = useLocalStorage('themeId', themeId);
 
   const handleChangeTheme = () => {
@@ -27,9 +34,58 @@ const Navbar = ({
     }
   };
 
+  // Store the current hash to scroll to
+  const handleNavItemClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const hash = event.currentTarget.href.split('#')[1];
+    setTarget(null);
+
+    if (hash && currentPathname === '/') {
+      setTarget(`#${hash}`);
+      event.preventDefault();
+    }
+  };
+
+  // Check if a nav item should be active
+  const getCurrent = (url = '') => {
+    const nonTrailing = currentPathname?.endsWith('/')
+      ? currentPathname?.slice(0, -1)
+      : currentPathname;
+
+    if (url === nonTrailing) {
+      return true;
+    }
+
+    return false;
+  };
+
   return (
-    <div className={styles.navbar}>
-      <Monogram />
+    <nav className={styles.navbar}>
+      <div className={styles.row}>
+        <Monogram />
+        <div className={styles.navList}>
+          {navLinks.map(({ label, pathname }) => (
+            <RouterLink
+              href={pathname}
+              passHref
+              scroll={false}
+              key={label}
+              data-navbar-item
+              className={styles.navLink}
+              aria-current={getCurrent(pathname)}
+            >
+              <LinkContent
+                href={pathname}
+                secondary
+                className="link-content"
+                onClick={handleNavItemClick}
+              >
+                {label}
+              </LinkContent>
+            </RouterLink>
+          ))}
+        </div>
+      </div>
+
       <Button
         iconOnly
         className={styles.toggle}
@@ -70,7 +126,7 @@ const Navbar = ({
           />
         </svg>
       </Button>
-    </div>
+    </nav>
   );
 };
 

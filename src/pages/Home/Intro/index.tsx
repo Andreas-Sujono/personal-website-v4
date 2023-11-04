@@ -10,6 +10,7 @@ import { DecoderText } from '@/components/DecoderText';
 import { cssProps } from '@/utils/styles';
 import { tokens, useTheme } from '@/components/ThemeProvider';
 import { Heading } from '@/components/Text/Heading';
+import { socialLinks } from '@/components/Navbar/navData';
 import styles from './Intro.module.scss';
 
 const DisplacementSphere = dynamic(() =>
@@ -73,7 +74,7 @@ export function Intro({
       tabIndex={-1}
       {...rest}
     >
-      <Transition in key={theme.themeId} timeout={3000}>
+      <Transition in key={theme.themeId} timeout={2000}>
         {(visible, status) => (
           <Fragment>
             <DisplacementSphere />
@@ -93,6 +94,7 @@ export function Intro({
                   >
                     Developer
                   </span>
+                  <span />
                   <span className={styles.line} data-status={status} />
                 </span>
                 <div className={styles.row}>
@@ -121,7 +123,7 @@ export function Intro({
                     })}
                   </AnimatePresence>
                 </div>
-                <div className={styles.row}></div>
+                <NavbarIcons status={status} />
               </Heading>
             </header>
             <RouterLink
@@ -139,3 +141,27 @@ export function Intro({
     </Section>
   );
 }
+
+const NavbarIcons = ({
+  desktop,
+  status,
+}: {
+  desktop?: boolean;
+  status?: string;
+}) => (
+  <div className={styles.icons} data-status={status}>
+    {socialLinks.map(({ label, url, Icon }) => (
+      <a
+        key={label}
+        data-navbar-item={desktop || undefined}
+        className={styles.iconLink}
+        aria-label={label}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon className={styles.navIcon} />
+      </a>
+    ))}
+  </div>
+);

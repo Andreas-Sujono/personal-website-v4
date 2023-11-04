@@ -14,6 +14,11 @@ function isAnchor(href?: string) {
 }
 
 interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
+  rel?: string;
+  target?: string;
+  children?: React.ReactNode;
+  secondary?: boolean;
+  className?: string;
   href?: string;
 }
 export const Link = forwardRef<any, LinkProps>(function _Link(
@@ -35,7 +40,7 @@ interface LinkContentProps extends React.HTMLAttributes<HTMLAnchorElement> {
   rel?: string;
   target?: string;
   children?: React.ReactNode;
-  secondary?: string;
+  secondary?: boolean;
   className?: string;
   href?: string;
 }
