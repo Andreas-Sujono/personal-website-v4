@@ -93,7 +93,7 @@
 .tagText {
   font-size: var(--fontSizeBodyS);
   font-weight: var(--fontWeightMedium);
-  color: rgb(var(--rgbPrimary));
+  color: rgb(var(--rgbAccent));
   opacity: 0;
   transition-property: opacity;
   transition-timing-function: var(--bezierFastoutSlowin);
@@ -135,6 +135,7 @@
 .button {
   opacity: 0;
   transition: opacity var(--durationXL) ease var(--durationL);
+  color: rgb(var(--rgbAccent));
 
   &[data-visible='true'] {
     transform: none;

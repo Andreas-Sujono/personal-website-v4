@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { Intro } from './Intro';
+import { Profile } from './Profile/Profile';
 
 const disciplines = [
   'Designer',
@@ -11,12 +12,15 @@ const disciplines = [
 ];
 
 const HomePage = () => {
-  const [visibleSections, setVisibleSections] = useState<Element[]>([]);
+  const [visibleSections, setVisibleSections] = useState<
+    (Element | undefined)[]
+  >([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
-  const intro = useRef();
+  const introRef = useRef();
+  const aboutMeRef = useRef();
 
   useEffect(() => {
-    const sections = [intro];
+    const sections = [introRef, aboutMeRef];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -46,7 +50,7 @@ const HomePage = () => {
       if (section.current) sectionObserver.observe(section.current);
     });
 
-    if (intro?.current) indicatorObserver.observe(intro?.current);
+    if (introRef?.current) indicatorObserver.observe(introRef?.current);
 
     return () => {
       sectionObserver.disconnect();
@@ -58,9 +62,14 @@ const HomePage = () => {
     <div className="home">
       <Intro
         id="intro"
-        sectionRef={intro}
+        sectionRef={introRef}
         disciplines={disciplines}
         scrollIndicatorHidden={scrollIndicatorHidden}
+      />
+      <Profile
+        id="about-me"
+        sectionRef={aboutMeRef}
+        visible={visibleSections.includes(aboutMeRef.current)}
       />
     </div>
   );

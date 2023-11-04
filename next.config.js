@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  images: { unoptimized: true },
   webpack(config, { isServer }) {
     // Import `svg` files as React components
     config.module.rules.push({

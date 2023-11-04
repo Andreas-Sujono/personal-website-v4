@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { classes } from '@/utils/styles';
 import styles from './styles.module.scss';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
   children?: React.ReactNode;
   className?: string;
