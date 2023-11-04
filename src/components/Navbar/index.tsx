@@ -1,6 +1,8 @@
 'use client';
 import React, { useId } from 'react';
 import { Button, ButtonProps } from '@/components/Button';
+import { useSelectSetThemeId, useSelectThemeId } from '@/store/selectors/theme';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import styles from './ThemeToggle.module.scss';
 import { Monogram } from './Monogram';
 
@@ -11,8 +13,18 @@ const Navbar = ({
   const id = useId();
   const maskId = `${id}theme-toggle-mask`;
 
-  const handleClick = () => {
-    // dispatch({ type: 'toggleTheme' });
+  const themeId = useSelectThemeId();
+  const setThemeId = useSelectSetThemeId();
+  const [storedValue, setStoredValue] = useLocalStorage('themeId', themeId);
+
+  const handleChangeTheme = () => {
+    if (themeId === 'light') {
+      setThemeId('dark');
+      setStoredValue('dark');
+    } else {
+      setThemeId('light');
+      setStoredValue('light');
+    }
   };
 
   return (
@@ -23,7 +35,7 @@ const Navbar = ({
         className={styles.toggle}
         data-mobile={isMobile}
         aria-label="Toggle theme"
-        onClick={handleClick}
+        onClick={handleChangeTheme}
         {...rest}
       >
         <svg

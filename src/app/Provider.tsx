@@ -1,12 +1,14 @@
 'use client';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import React, { Fragment, createContext } from 'react';
+import React, { Fragment, createContext, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider, tokenStyles } from '@/components/ThemeProvider';
 import { tokens } from '@/components/ThemeProvider/theme';
 import { VisuallyHidden } from '@/components/VisuallyHidden';
 import { msToNum } from '@/utils/styles';
+import { useSelectSetThemeId, useSelectThemeId } from '@/store/selectors/theme';
+import { useLocalStorage } from '@/hooks';
 import styles from './App.module.css';
 
 export const AppContext = createContext({});
@@ -16,10 +18,18 @@ ${tokenStyles}`;
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const path = usePathname();
+  const themeId = useSelectThemeId();
+  const setThemeId = useSelectSetThemeId();
+
+  const [storedValue] = useLocalStorage('themeId', themeId);
+
+  useEffect(() => {
+    if (storedValue) setThemeId(storedValue);
+  }, [storedValue, setThemeId]);
 
   return (
     <AppContext.Provider value={{}}>
-      <ThemeProvider themeId={'dark'}>
+      <ThemeProvider themeId={themeId}>
         <>
           <LazyMotion features={domAnimation}>
             <Fragment>

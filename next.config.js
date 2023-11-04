@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  exports: 'output',
+  output: 'export',
+  trailingSlash: true,
   webpack(config, { isServer }) {
     // Import `svg` files as React components
     config.module.rules.push({
