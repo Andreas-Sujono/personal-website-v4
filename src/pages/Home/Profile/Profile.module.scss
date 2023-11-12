@@ -54,6 +54,15 @@
   align-items: flex-start;
   margin-bottom: 40px;
   transform: translate3d(0, 0, 0);
+
+  img {
+    opacity: 0;
+    transition: opacity var(--durationXL) ease var(--durationL);
+
+    &[data-visible='true'] {
+      opacity: 1;
+    }
+  }
 }
 
 .title {

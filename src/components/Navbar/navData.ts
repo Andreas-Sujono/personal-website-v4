@@ -15,10 +15,10 @@ export const navLinks = [
     label: 'UI Exploration',
     pathname: '/ui-exploration',
   },
-  {
-    label: 'Articles',
-    pathname: '/articles',
-  },
+  // {
+  //   label: 'Articles',
+  //   pathname: '/articles',
+  // },
   {
     label: 'Contacts',
     pathname: '/contact',
@@ -33,12 +33,12 @@ export const socialLinks = [
   },
   {
     label: 'Linkedin',
-    url: 'https://www.figma.com/@Hamish',
+    url: 'https://www.figma.com/@andreassujono2',
     Icon: LinkedinIcon,
   },
   {
     label: 'Github',
-    url: 'https://github.com/HamishMW',
+    url: 'https://github.com/andreassujono2',
     Icon: GithubIcon,
   },
 ];

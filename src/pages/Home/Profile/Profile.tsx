@@ -84,6 +84,7 @@ export const Profile = ({
                 // srcSet={[profileImg, profileImgLarge]}
                 // sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
                 alt="companies where I have been working on"
+                data-visible={visible}
               />
 
               <Button

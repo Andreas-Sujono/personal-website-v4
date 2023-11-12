@@ -17,6 +17,10 @@
   --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--fontStack);
   font-weight: var(--fontWeightRegular);
