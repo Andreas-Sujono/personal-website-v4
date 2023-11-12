@@ -105,14 +105,14 @@ const ImageElements = ({
   ...rest
 }: ImageElementsProps) => {
   const reduceMotion = useReducedMotion();
-  const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const [showPlaceholder, setShowPlaceholder] = useState(false);
   // const [playing, setPlaying] = useState(!reduceMotion);
   // const [videoSrc, setVideoSrc] = useState();
   // const [videoInteracted, setVideoInteracted] = useState(false);
   const placeholderRef = useRef<HTMLImageElement | null>(null);
   // const videoRef = useRef();
   const isVideo = getIsVideo(src);
-  const showFullRes = inViewport;
+  const showFullRes = true; //inViewport;
   const srcSetString = srcSetToString(srcSet);
   // const hasMounted = useHasMounted();
 
@@ -211,13 +211,17 @@ const ImageElements = ({
           )}
         </Fragment>
       )} */}
-      {!isVideo && (
+      {!isVideo && !!(src as { src: string })?.src && (
         <NextImage
           className={styles.element}
           data-loaded={loaded}
           onLoad={onLoad}
           decoding="async"
-          src={showFullRes ? (src as { src: string })?.src || '' : ''}
+          src={
+            showFullRes
+              ? (src as { src: string })?.src || '/next.svg' //FIXME: create placeholder image here
+              : '/next.svg'
+          }
           // srcSet={showFullRes ? srcSetString : ''}
           width={(src as { width: number })?.width}
           height={(src as { height: number })?.height}
@@ -226,7 +230,7 @@ const ImageElements = ({
           {...rest}
         />
       )}
-      {showPlaceholder && (
+      {/* {showPlaceholder && placeholder?.src && (
         <NextImage
           aria-hidden
           className={styles.placeholder}
@@ -241,7 +245,7 @@ const ImageElements = ({
           alt=""
           role="presentation"
         />
-      )}
+      )} */}
     </div>
   );
 };

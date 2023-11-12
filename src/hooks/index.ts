@@ -6,3 +6,4 @@ export * from './useWindowSize';
 export * from './useInViewport';
 export * from './usePrevious';
 export * from './useInterval';
+export * from './useFormInput';

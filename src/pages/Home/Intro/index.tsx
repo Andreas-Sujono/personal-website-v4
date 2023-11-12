@@ -97,7 +97,12 @@ export function Intro({
                   <span />
                   <span className={styles.line} data-status={status} />
                 </span>
-                <div className={styles.row}>
+                <div
+                  className={styles.row}
+                  style={{
+                    minHeight: '100px',
+                  }}
+                >
                   <AnimatePresence>
                     {disciplines.map((item) => {
                       return (

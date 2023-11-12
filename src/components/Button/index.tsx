@@ -22,6 +22,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   iconEnd?: boolean;
   iconHoverShift?: boolean;
   iconOnly?: boolean;
+  type?: string;
 }
 
 export const Button = forwardRef<any, ButtonProps>(({ href, ...rest }, ref) => {
@@ -30,7 +31,7 @@ export const Button = forwardRef<any, ButtonProps>(({ href, ...rest }, ref) => {
   }
 
   return (
-    <Link passHref href={href} scroll={false}>
+    <Link passHref href={href} scroll={false} legacyBehavior>
       <ButtonContent href={href} ref={ref} {...rest} />
     </Link>
   );

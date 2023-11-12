@@ -1,10 +1,8 @@
 import { Fragment, useState } from 'react';
-import { media } from '@/utils/styles';
 import { Button } from '@/components/Button';
 import { DecoderText } from '@/components/DecoderText';
 import { Divider } from '@/components/Divider';
 import { Heading } from '@/components/Text/Heading';
-import { Link } from '@/components/Text/Link';
 import { Section } from '@/components/Container/Section';
 import { Text } from '@/components/Text';
 import { Transition } from '@/components/Transition';
@@ -26,7 +24,7 @@ const ProfileText = ({
       level={3}
       id={titleId}
     >
-      <DecoderText text="Hi there" start={visible} delay={500} />
+      <DecoderText text="Hi there!" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       I&apos;m Andreas Sujono, currently I live in Singapore working as a Full
@@ -36,9 +34,9 @@ const ProfileText = ({
       and Blockchain.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my free time, I enjoy writing about Frontend, Backend, and Blockchain
-      stuffs. Read more in the articles section. A lot of projects are coming
-      up, so stay tuned and feel free to drop me a message.
+      I&apos;m writing articles about Frontend, Backend, and Blockchain stuffs.
+      Read more in the articles section. A lot of projects are coming up, so
+      stay tuned and feel free to drop me a message.
     </Text>
   </Fragment>
 );
@@ -71,6 +69,23 @@ export const Profile = ({
           <div className={styles.content}>
             <div className={styles.column}>
               <ProfileText visible={visible} titleId={titleId} />
+              <Image
+                reveal
+                delay={100}
+                src={{
+                  src: '/companies.png',
+                  width: 400,
+                  height: 200,
+                }}
+                style={{
+                  marginTop: '1rem',
+                }}
+                // placeholder={profileImgPlaceholder}
+                // srcSet={[profileImg, profileImgLarge]}
+                // sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
+                alt="companies where I have been working on"
+              />
+
               <Button
                 secondary
                 className={styles.button}

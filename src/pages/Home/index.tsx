@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Intro } from './Intro';
 import { Profile } from './Profile/Profile';
+import { Projects } from './Projects';
 
 const disciplines = [
   'Designer',
@@ -18,9 +19,10 @@ const HomePage = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const introRef = useRef();
   const aboutMeRef = useRef();
+  const projectsRef = useRef();
 
   useEffect(() => {
-    const sections = [introRef, aboutMeRef];
+    const sections = [introRef, aboutMeRef, projectsRef];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -70,6 +72,11 @@ const HomePage = () => {
         id="about-me"
         sectionRef={aboutMeRef}
         visible={visibleSections.includes(aboutMeRef.current)}
+      />
+      <Projects
+        id="projects"
+        sectionRef={projectsRef}
+        visible={visibleSections.includes(projectsRef.current)}
       />
     </div>
   );

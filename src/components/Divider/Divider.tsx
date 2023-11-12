@@ -25,10 +25,10 @@ export const Divider = ({
     className={classes(styles.divider, className)}
     style={cssProps(
       {
-        lineWidth: lineWidth || 0,
-        lineHeight: lineHeight || 0,
-        notchWidth: notchWidth || 0,
-        notchHeight: notchHeight || 0,
+        lineWidth: lineWidth || '100%',
+        lineHeight: lineHeight || '2px',
+        notchWidth: notchWidth || '90px',
+        notchHeight: notchHeight || '10px',
         collapseDelay: numToMs(collapseDelay || 0),
       },
       style,
@@ -43,12 +43,3 @@ export const Divider = ({
     />
   </div>
 );
-
-Divider.defaultProps = {
-  lineWidth: '100%',
-  lineHeight: '2px',
-  notchWidth: '90px',
-  notchHeight: '10px',
-  collapsed: false,
-  collapseDelay: 0,
-};

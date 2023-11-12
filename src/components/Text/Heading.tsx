@@ -3,7 +3,7 @@ import { classes } from '@/utils/styles';
 import styles from './styles.module.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactElement | React.ReactElement[];
+  children?: React.ReactElement | React.ReactElement[] | string;
   level?: number;
   as?: React.ElementType;
   align?: string;

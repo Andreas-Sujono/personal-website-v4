@@ -33,7 +33,7 @@ export const msToNum = (msString: string) => Number(msString.replace('ms', ''));
 /**
  * Convert a number to an ms string
  */
-export const numToMs = (num: number) => `${num}ms`;
+export const numToMs = (num: number | string) => `${num}ms`;
 
 /**
  * Convert an rgb theme property (e.g. rgbBlack: '0 0 0')
