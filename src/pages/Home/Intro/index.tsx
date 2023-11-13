@@ -132,7 +132,7 @@ export function Intro({
               </Heading>
             </header>
             <RouterLink
-              href="/#projects"
+              href="/#about-me"
               className={styles.scrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}

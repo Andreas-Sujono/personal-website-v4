@@ -27,6 +27,8 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     if (storedValue) setThemeId(storedValue);
   }, [storedValue, setThemeId]);
 
+  const finalPath = path?.includes('ui-exploration') ? 'ui-exploration' : path;
+
   return (
     <AppContext.Provider value={{}}>
       <ThemeProvider themeId={themeId}>
@@ -45,7 +47,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
               <main className={styles.app} id="MainContent">
                 <AnimatePresence mode="wait">
                   <m.div
-                    key={path}
+                    key={finalPath}
                     className={styles.page}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

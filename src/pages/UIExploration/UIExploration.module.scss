@@ -1,0 +1,110 @@
+.page {
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  padding-top: calc(var(--space5XL));
+  max-width: var(--maxWidth3XL);
+  margin: auto;
+
+  @media (--mediaMobile) {
+    padding-top: 0;
+  }
+}
+
+.title {
+  margin-bottom: var(--spaceM);
+  transition-property: opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationXL);
+  transition-delay: var(--delay);
+  opacity: 0;
+
+  @media (--mediaUseMotion) {
+    // transition-property: transform, opacity;
+    // transform: translate3d(0, var(--space5XL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
+
+  &[data-status='exiting'] {
+    transition-duration: var(--durationM);
+    transition-delay: 0s;
+    opacity: 0;
+
+    // @media (--mediaUseMotion) {
+    //   transform: translate3d(0, calc(var(--space2XL) * -1), 0);
+    // }
+  }
+}
+
+.divider {
+  transition-property: opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationXL);
+  transition-delay: var(--delay);
+  opacity: 0;
+
+  // @media (--mediaUseMotion) {
+  //   transition-property: transform, opacity;
+  //   transform: translate3d(0, var(--space5XL), 0);
+  // }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
+
+  &[data-hidden='true'] {
+    opacity: 0;
+
+    // @media (--mediaUseMotion) {
+    //   transform: translate3d(0, var(--space5XL), 0);
+    // }
+  }
+
+  &[data-status='exiting'] {
+    transition-duration: var(--durationM);
+    transition-delay: 0s;
+    opacity: 0;
+
+    // @media (--mediaUseMotion) {
+    //   transform: translate3d(0, calc(var(--space2XL) * -1), 0);
+    // }
+  }
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  background: rgb(var(--rgbBackgroundLight));
+  padding: var(--space3XL) var(--space2XL);
+
+  li {
+    margin: var(--spaceS) 0;
+  }
+}
+
+.uiContent {
+  padding: var(--space2XL) 0;
+}
+
+.verticalLine {
+  width: 1px;
+  // background: rgb(var(--rgbBackgroundLight));
+  margin: 0 var(--spaceM);
+}
+
+.gap {
+  margin: 0 0;
+  padding: var(--spaceS) 0;
+}

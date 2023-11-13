@@ -66,6 +66,7 @@ const tokensLaptop = {
   maxWidthM: '640px',
   maxWidthL: '1000px',
   maxWidthXL: '1100px',
+  maxWidth3XL: '1500px',
   spaceOuter: '48px',
   fontSizeH0: pxToRem(100),
   fontSizeH1: pxToRem(70),
