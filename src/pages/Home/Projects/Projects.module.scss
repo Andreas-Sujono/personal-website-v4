@@ -1,12 +1,12 @@
 .projects {
-  width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
   max-width: var(--maxWidthL);
   margin-top: 60px;
   margin-bottom: 40px;
   padding-top: 60px;
   padding-bottom: 40px;
   margin-inline: auto;
-  box-sizing: content-box;
 
   @media (--mediaTablet) {
     padding-top: 50px;
@@ -19,7 +19,7 @@
 
   @media (--mediaMobile) {
     margin-top: 0;
-    padding-top: var(--space4XL);
+    padding-top: var(--spaceXL);
     overflow-x: hidden;
   }
 

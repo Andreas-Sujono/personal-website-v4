@@ -100,7 +100,7 @@ export function Intro({
                 <div
                   className={styles.row}
                   style={{
-                    minHeight: '100px',
+                    marginTop: '16px',
                   }}
                 >
                   <AnimatePresence>

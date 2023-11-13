@@ -33,12 +33,12 @@ export const socialLinks = [
   },
   {
     label: 'Linkedin',
-    url: 'https://www.figma.com/@andreassujono2',
+    url: 'https://www.linkedin.com/in/andreassujono',
     Icon: LinkedinIcon,
   },
   {
     label: 'Github',
-    url: 'https://github.com/andreassujono2',
+    url: 'https://github.com/Andreas-Sujono',
     Icon: GithubIcon,
   },
 ];
