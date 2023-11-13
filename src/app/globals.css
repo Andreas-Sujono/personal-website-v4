@@ -83,3 +83,8 @@ body:focus {
     transform-origin: right;
   }
 }
+
+.medium-feed-image,
+.medium-feed-link {
+  display: none;
+}

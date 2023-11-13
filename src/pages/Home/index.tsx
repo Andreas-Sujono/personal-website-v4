@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
+import { useGetAllArticles } from '@/api/articles';
 import { Intro } from './Intro';
 import { Profile } from './Profile/Profile';
 import { Projects } from './Projects';
@@ -20,6 +21,7 @@ const HomePage = () => {
   const introRef = useRef();
   const aboutMeRef = useRef();
   const projectsRef = useRef();
+  useGetAllArticles();
 
   useEffect(() => {
     const sections = [introRef, aboutMeRef, projectsRef];

@@ -15,10 +15,10 @@ export const navLinks = [
     label: 'UI Exploration',
     pathname: '/ui-exploration',
   },
-  // {
-  //   label: 'Articles',
-  //   pathname: '/articles',
-  // },
+  {
+    label: 'Articles',
+    pathname: '/articles',
+  },
   {
     label: 'Contacts',
     pathname: '/contact',

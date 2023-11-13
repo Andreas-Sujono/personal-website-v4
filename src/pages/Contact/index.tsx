@@ -33,20 +33,18 @@ export const Contact = () => {
     try {
       setSending(true);
 
-      // const response = await fetch(
-      //   `${process.env.NEXT_PUBLIC_API_URL}/message`,
-      //   {
-      //     method: 'POST',
-      //     mode: 'cors',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({
-      //       email: email.value,
-      //       message: message.value,
-      //     }),
-      //   },
-      // );
+      const response = await fetch(`https://api.web3forms.com/submit`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.value,
+          message: message.value,
+          access_key: 'aae04f23-c95a-437c-a8d1-06f518d195bd',
+        }),
+      });
 
       // const responseMessage = await response.json();
 

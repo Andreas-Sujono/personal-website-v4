@@ -3,6 +3,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React, { Fragment, createContext, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider, tokenStyles } from '@/components/ThemeProvider';
 import { tokens } from '@/components/ThemeProvider/theme';
 import { VisuallyHidden } from '@/components/VisuallyHidden';
@@ -12,6 +13,7 @@ import { useLocalStorage } from '@/hooks';
 import styles from './App.module.css';
 
 export const AppContext = createContext({});
+const queryClient = new QueryClient();
 
 const GlobalStyle = createGlobalStyle`
 ${tokenStyles}`;
@@ -32,7 +34,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <AppContext.Provider value={{}}>
       <ThemeProvider themeId={themeId}>
-        <>
+        <QueryClientProvider client={queryClient}>
           <LazyMotion features={domAnimation}>
             <Fragment>
               <VisuallyHidden
@@ -66,7 +68,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
             </Fragment>
           </LazyMotion>
           <GlobalStyle />
-        </>
+        </QueryClientProvider>
       </ThemeProvider>
     </AppContext.Provider>
   );

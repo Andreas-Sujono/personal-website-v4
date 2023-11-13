@@ -35,8 +35,8 @@ const ProfileText = ({
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       I&apos;m writing articles about Frontend, Backend, and Blockchain stuffs.
-      Read more in the articles section. A lot of projects are coming up, so
-      stay tuned and feel free to drop me a message.
+      Read more in the articles section if you&apos;re curious. A lot of
+      projects are coming up, so stay tuned and feel free to drop me a message.
     </Text>
   </Fragment>
 );
