@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import Provider from './Provider';
@@ -20,6 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Script
+        id="scrollRestorationDisabler"
+        dangerouslySetInnerHTML={{
+          __html: `history.scrollRestoration = "manual"`,
+        }}
+      />
       <body className={inter.className}>
         <Provider>
           <Navbar />

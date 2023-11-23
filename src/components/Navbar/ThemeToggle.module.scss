@@ -47,7 +47,7 @@
 
 .navbarMobile {
   display: none;
-  top: calc(var(--inset) - 0.6rem);
+  top: calc(var(--inset) - 0.7rem);
   padding: 0 0.5rem !important;
 
   @media (--mediaMobile), (--mediaMobileLS) {
