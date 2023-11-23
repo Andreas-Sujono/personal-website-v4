@@ -47,7 +47,7 @@ const HomePage = () => {
       ([entry]) => {
         setScrollIndicatorHidden(!entry.isIntersecting);
       },
-      { rootMargin: '-100% 0px 0px 0px' },
+      { rootMargin: '-80% 0px 0px 0px' },
     );
 
     sections.forEach((section) => {

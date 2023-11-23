@@ -91,7 +91,7 @@ const Navbar = ({
   };
 
   return (
-    <>
+    <div style={{ position: 'absolute' }}>
       <nav className={styles.navbar} data-navscroll={isScrolled}>
         <div className={styles.navcontent}>
           <div className={styles.row}>
@@ -222,7 +222,7 @@ const Navbar = ({
         </div>
       </nav>
       <div ref={navRef}></div>
-    </>
+    </div>
   );
 };
 

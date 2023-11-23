@@ -10,12 +10,12 @@
   width: calc(100vw);
   background-color: transparent;
   transition: all 0.18s ease-in-out 0.1s;
-  padding: 1rem 0 0 0.5rem;
+  padding: 1rem 0.5rem;
 
   &[data-navscroll='true'] {
     border-radius: 0 0 0 0;
     background-color: rgb(var(--rgbBackground) / 1);
-    padding: 1rem 0 0 0.5rem;
+    padding: 1rem 0.5rem;
     transition: all 0.1s ease-in-out;
 
     // &::before {
@@ -47,7 +47,8 @@
 
 .navbarMobile {
   display: none;
-  top: calc(var(--inset) - 1.5rem);
+  top: calc(var(--inset) - 0.6rem);
+  padding: 0 0.5rem !important;
 
   @media (--mediaMobile), (--mediaMobileLS) {
     display: block !important;

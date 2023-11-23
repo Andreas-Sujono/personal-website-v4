@@ -10,6 +10,7 @@ import { VisuallyHidden } from '@/components/VisuallyHidden';
 import { msToNum } from '@/utils/styles';
 import { useSelectSetThemeId, useSelectThemeId } from '@/store/selectors/theme';
 import { useLocalStorage } from '@/hooks';
+import { Transition } from '@/components/Transition';
 import styles from './App.module.css';
 
 export const AppContext = createContext({});
@@ -61,7 +62,20 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
                       delay: 0.1,
                     }}
                   > */}
-              {children}
+              <Transition
+                in
+                timeout={msToNum(tokens.base.durationS)}
+                // key={finalPath}
+                unmount
+              >
+                {(isVisible, status) => {
+                  return (
+                    <div className={styles.pageTransition} data-status={status}>
+                      {children}
+                    </div>
+                  );
+                }}
+              </Transition>
               {/* </m.div> */}
               {/* </AnimatePresence> */}
             </main>
