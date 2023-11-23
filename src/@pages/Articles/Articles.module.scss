@@ -6,7 +6,7 @@
   padding-top: calc(var(--space5XL));
 
   @media (--mediaMobile) {
-    padding-top: 0;
+    padding-top: var(--space3XL);
   }
 }
 
@@ -20,7 +20,7 @@
 
   @media (--mediaUseMotion) {
     transition-property: transform, opacity;
-    transform: translate3d(0, var(--space5XL), 0);
+    // transform: translate3d(0, var(--space5XL), 0);
   }
 
   &[data-status='entering'],
@@ -34,9 +34,9 @@
     transition-delay: 0s;
     opacity: 0;
 
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    }
+    // @media (--mediaUseMotion) {
+    //   transform: translate3d(0, calc(var(--space2XL) * -1), 0);
+    // }
   }
 }
 
@@ -50,7 +50,7 @@
 
   @media (--mediaUseMotion) {
     transition-property: transform, opacity;
-    transform: translate3d(0, var(--space5XL), 0);
+    // transform: translate3d(0, var(--space5XL), 0);
   }
 
   &[data-status='entering'],
@@ -62,9 +62,9 @@
   &[data-hidden='true'] {
     opacity: 0;
 
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, var(--space5XL), 0);
-    }
+    // @media (--mediaUseMotion) {
+    //   transform: translate3d(0, var(--space5XL), 0);
+    // }
   }
 
   &[data-status='exiting'] {
@@ -72,8 +72,8 @@
     transition-delay: 0s;
     opacity: 0;
 
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    }
+    // @media (--mediaUseMotion) {
+    //   transform: translate3d(0, calc(var(--space2XL) * -1), 0);
+    // }
   }
 }

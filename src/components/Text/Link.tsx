@@ -43,18 +43,20 @@ interface LinkContentProps extends React.HTMLAttributes<HTMLAnchorElement> {
   secondary?: boolean;
   className?: string;
   href?: string;
+  as?: React.ElementType;
 }
 export const LinkContent = forwardRef<any, LinkContentProps>(
   function _LinkContent(
-    { rel, target, children, secondary, className, href, ...rest },
+    { rel, target, children, secondary, className, href, as, ...rest },
     ref,
   ) {
     const isExternal = href?.includes('://');
     const relValue = rel || (isExternal ? 'noreferrer noopener' : undefined);
     const targetValue = target || (isExternal ? '_blank' : undefined);
+    const Comp = as || 'a';
 
     return (
-      <a
+      <Comp
         className={classes(styles.link, className)}
         data-secondary={secondary}
         rel={relValue}
@@ -64,7 +66,7 @@ export const LinkContent = forwardRef<any, LinkContentProps>(
         {...rest}
       >
         {children}
-      </a>
+      </Comp>
     );
   },
 );

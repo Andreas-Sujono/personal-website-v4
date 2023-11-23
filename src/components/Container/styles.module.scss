@@ -1,6 +1,6 @@
 .section {
   padding-right: var(--spaceS);
-  padding-left: calc(var(--spaceS) * 2);
+  padding-left: calc(var(--spaceS));
   padding-top: var(--space4XL);
 
   &:focus {

@@ -2,11 +2,11 @@
   min-height: calc(100vh - 120px);
   width: 100%;
   padding-top: calc(var(--space5XL));
-  max-width: var(--maxWidth3XL);
+  max-width: var(--maxWidthXL);
   margin: auto;
 
   @media (--mediaMobile) {
-    padding-top: 0;
+    padding-top: var(--space3XL);
   }
 }
 
@@ -79,6 +79,7 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -91,6 +92,18 @@
 
   li {
     margin: var(--spaceS) 0;
+  }
+
+  @media (--mediaMobile) {
+    min-height: initial;
+    flex-direction: row;
+    overflow: auto;
+    padding: var(--spaceXL) var(--spaceL);
+
+    li {
+      white-space: nowrap;
+      margin-right: var(--spaceM);
+    }
   }
 }
 

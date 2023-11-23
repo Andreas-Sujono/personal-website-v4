@@ -1,5 +1,6 @@
 import parse from 'html-react-parser';
 import moment from 'moment';
+import Image from 'next/image';
 import { classes } from '@/utils/styles';
 import { Heading } from '@/components/Text/Heading';
 import { Text } from '@/components/Text';
@@ -42,6 +43,22 @@ export const ArticleCard = ({
             </Text>
           </div>
         </div>
+      </div>
+      <div>
+        <Image
+          src={data.thumbnail}
+          width={400}
+          height={300}
+          alt=""
+          style={{
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            padding: '1rem',
+            maxHeight: '300px',
+            flex: '0 1 300px',
+          }}
+        />
       </div>
     </article>
   );
