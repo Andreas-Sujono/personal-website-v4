@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Layout } from '@/pages/UIExploration/Layout';
+import { Layout } from '@/@pages/UIExploration/Layout';
 
 export const metadata: Metadata = {
   title: 'UI Exploration - by Andreas Sujono',
