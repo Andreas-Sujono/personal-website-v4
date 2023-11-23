@@ -35,20 +35,20 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     <AppContext.Provider value={{}}>
       <ThemeProvider themeId={themeId}>
         <QueryClientProvider client={queryClient}>
-          <LazyMotion features={domAnimation}>
-            <Fragment>
-              <VisuallyHidden
-                showOnFocus
-                as="a"
-                className={styles.skip}
-                href="#MainContent"
-              >
-                Skip to main content
-              </VisuallyHidden>
-              {/* <Navbar /> */}
-              <main className={styles.app} id="MainContent">
-                <AnimatePresence mode="wait">
-                  <m.div
+          {/* <LazyMotion features={domAnimation}> */}
+          <Fragment>
+            <VisuallyHidden
+              showOnFocus
+              as="a"
+              className={styles.skip}
+              href="#MainContent"
+            >
+              Skip to main content
+            </VisuallyHidden>
+            {/* <Navbar /> */}
+            <main className={styles.app} id="MainContent">
+              {/* <AnimatePresence mode="wait"> */}
+              {/* <m.div
                     key={finalPath}
                     className={styles.page}
                     initial={{ opacity: 0 }}
@@ -60,13 +60,13 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
                       duration: msToNum(tokens.base.durationS) / 1000,
                       delay: 0.1,
                     }}
-                  >
-                    {children}
-                  </m.div>
-                </AnimatePresence>
-              </main>
-            </Fragment>
-          </LazyMotion>
+                  > */}
+              {children}
+              {/* </m.div> */}
+              {/* </AnimatePresence> */}
+            </main>
+          </Fragment>
+          {/* </LazyMotion> */}
           <GlobalStyle />
         </QueryClientProvider>
       </ThemeProvider>
